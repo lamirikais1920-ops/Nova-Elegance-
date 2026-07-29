@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NOVA Elegance</title>
+
+<style>
+body {
+    margin:0;
+    font-family: Arial;
+    background:#0d0d0d;
+    color:white;
+}
+
+header {
+    text-align:center;
+    padding:30px;
+    font-size:30px;
+}
+
+.products {
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.product {
+    background:#1a1a1a;
+    padding:20px;
+    border-radius:10px;
+    width:250px;
+    text-align:center;
+}
+
+button {
+    background:gold;
+    border:none;
+    padding:10px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+/* FORM */
+#orderForm {
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:#1a1a1a;
+    padding:20px;
+    border-radius:10px;
+}
+
+input, textarea {
+    width:100%;
+    margin:5px 0;
+    padding:8px;
+}
+</style>
+</head>
+
+<body>
+
+<header>NOVA Elegance</header>
+
+<section class="products">
+
+<div class="product">
+<h3>Nova T-Shirt</h3>
+<p>€25</p>
+<button onclick="openForm('Nova T-Shirt')">Buy</button>
+</div>
+
+<div class="product">
+<h3>Nova Hoodie</h3>
+<p>€50</p>
+<button onclick="openForm('Nova Hoodie')">Buy</button>
+</div>
+
+</section>
+
+<!-- FORM -->
+<div id="orderForm">
+<h3>Order</h3>
+
+<form action="https://formsubmit.co/kaislamiri1920@gmail.com" method="POST">
+
+<input type="hidden" name="Product" id="productInput">
+
+<input type="text" name="Name" placeholder="Your Name" required>
+<input type="tel" name="Phone" placeholder="Phone Number" required>
+<input type="text" name="Address" placeholder="Address" required>
+
+<textarea name="Notes" placeholder="Notes"></textarea>
+
+<button type="submit">Confirm Order</button>
+
+</form>
+
+<br>
+<button onclick="closeForm()">Close</button>
+
+</div>
+
+<script>
+function openForm(product) {
+    document.getElementById("orderForm").style.display = "block";
+    document.getElementById("productInput").value = product;
+}
+
+function closeForm() {
+    document.getElementById("orderForm").style.display = "none";
+}
+</script>
+
+</body>
+</html>
