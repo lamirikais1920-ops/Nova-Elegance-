@@ -8,8 +8,8 @@
 
 body {
     margin:0;
-    font-family:Arial, sans-serif;
-    background:radial-gradient(circle at top,#3b2b00,#0d0d0d 50%);
+    font-family:Arial;
+    background:radial-gradient(circle at top,#3b2b00,#0d0d0d 60%);
     color:white;
 }
 
@@ -17,191 +17,124 @@ body {
 /* HEADER */
 header {
     text-align:center;
-    padding:45px 20px;
-    font-size:45px;
+    padding:40px;
+    font-size:50px;
     font-weight:bold;
-    letter-spacing:5px;
     color:#ffd700;
-    text-shadow:
-    0 0 10px gold,
-    0 0 30px orange;
+    text-shadow:0 0 20px gold;
 }
 
 .subtitle {
     text-align:center;
-    color:#ddd;
-    letter-spacing:4px;
     margin-top:-25px;
     margin-bottom:40px;
+    letter-spacing:4px;
+    color:#ddd;
 }
 
 
-
-/* DECORATION */
-body:before {
-    content:"✦ ✧ ✦ ✧ ✦";
-    position:fixed;
-    top:15px;
-    width:100%;
-    text-align:center;
-    color:gold;
-    opacity:.5;
-    font-size:25px;
-}
-
-
-/* PRODUCTS */
-
-.products {
+/* MAIN PRODUCT */
+.main-product {
     display:flex;
     justify-content:center;
-    gap:30px;
+    align-items:center;
+    gap:50px;
+    padding:40px;
     flex-wrap:wrap;
 }
 
 
-.product {
-
-    background:linear-gradient(145deg,#222,#090909);
-    width:260px;
-    padding:25px;
-    text-align:center;
+/* IMAGE */
+.product-image img {
+    width:400px;
     border-radius:20px;
-
-    border:1px solid rgba(255,215,0,.5);
-
-    box-shadow:
-    0 0 25px rgba(255,215,0,.2);
-
-    transition:.4s;
+    box-shadow:0 0 40px gold;
 }
 
 
-.product:hover {
-
-    transform:translateY(-10px);
-
-    box-shadow:
-    0 0 40px gold;
-
+/* DETAILS */
+.product-info {
+    max-width:400px;
 }
 
-
-.product h3 {
-
+.product-info h2 {
     color:#ffd700;
-    font-size:23px;
+    font-size:35px;
+}
 
+.price {
+    font-size:28px;
+    margin:10px 0;
 }
 
 
-.product p {
-
-    font-size:22px;
-
-}
-
-
-
-/* BUTTON */
-
-button {
-
-    background:linear-gradient(45deg,#ffd700,#ff9900);
-
-    color:black;
-
+/* SIZE SELECT */
+select {
+    width:100%;
+    padding:12px;
+    border-radius:10px;
     border:none;
+    margin:10px 0;
+    font-size:16px;
+}
 
-    padding:12px 25px;
 
-    border-radius:30px;
-
+/* BIG BUTTON */
+.buy-btn {
+    width:100%;
+    padding:18px;
+    font-size:20px;
     font-weight:bold;
-
+    background:linear-gradient(45deg,#ffcc00,#ff6600);
+    border:none;
+    border-radius:30px;
     cursor:pointer;
-
-    transition:.3s;
-
+    color:black;
+    animation:pulse 1.5s infinite;
 }
 
 
-button:hover {
-
-    transform:scale(1.1);
-
-    box-shadow:0 0 20px gold;
-
+/* ANIMATION */
+@keyframes pulse {
+    0% {transform:scale(1);}
+    50% {transform:scale(1.08);}
+    100% {transform:scale(1);}
 }
 
+.buy-btn:hover {
+    box-shadow:0 0 30px gold;
+}
 
 
 /* FORM */
-
 #orderForm {
-
     display:none;
-
     position:fixed;
-
     top:50%;
-
     left:50%;
-
     transform:translate(-50%,-50%);
-
     background:#111;
-
-    width:320px;
-
     padding:30px;
-
     border-radius:20px;
-
     border:1px solid gold;
-
     box-shadow:0 0 50px gold;
-
-    z-index:10;
-
+    width:300px;
 }
-
 
 input, textarea {
-
     width:100%;
-
     margin:8px 0;
-
     padding:10px;
-
     border-radius:10px;
-
     border:none;
-
 }
-
 
 
 /* SUCCESS */
-
 #successMessage {
-
     display:none;
-
     text-align:center;
-
-    margin-top:20px;
-
 }
-
-
-#successMessage h2 {
-
-    color:gold;
-
-}
-
 
 </style>
 
@@ -210,203 +143,116 @@ input, textarea {
 
 <body>
 
-
-<header>
-NOVA Elegance
-</header>
+<header>NOVA Elegance</header>
+<div class="subtitle">LUXURY • STYLE • UNIQUE</div>
 
 
-<div class="subtitle">
-LUXURY • STYLE • UNIQUE
+<div class="main-product">
+
+<div class="product-image">
+<img src="Screenshot_20260730_021551_Gallery.jpg">
 </div>
 
 
+<div class="product-info">
 
-<section class="products">
+<h2>Nova T-Shirt</h2>
 
+<div class="price">55dt + 7dt livraison</div>
 
-<div class="product">
+<label>Choose Size:</label>
 
-<h3>Nova T-Shirt</h3>
+<select id="size">
+<option value="M">M</option>
+<option value="L">L</option>
+<option value="XL">XL</option>
+<option value="XXL">XXL</option>
+</select>
 
-<p>€25</p>
-
-<button onclick="openForm('Nova T-Shirt')">
-Buy
+<button class="buy-btn" onclick="openForm()">
+🔥 BUY NOW
 </button>
 
 </div>
 
-
-
-<div class="product">
-
-<h3>Nova Hoodie</h3>
-
-<p>€50</p>
-
-<button onclick="openForm('Nova Hoodie')">
-Buy
-</button>
-
 </div>
 
 
-</section>
 
-
-
-<!-- ORDER FORM -->
+<!-- FORM -->
 
 <div id="orderForm">
 
-
 <h2>Order</h2>
-
 
 <form id="orderData"
 action="https://formsubmit.co/kaislamiri1920@gmail.com"
 method="POST">
 
+<input type="hidden" name="Product" value="Nova T-Shirt">
 
-<input type="hidden"
-name="Product"
-id="productInput">
+<input type="hidden" name="Size" id="sizeInput">
 
+<input type="text" name="Name" placeholder="Your Name" required>
+<input type="tel" name="Phone" placeholder="Phone Number" required>
+<input type="text" name="Address" placeholder="Address" required>
 
-<input type="text"
-name="Name"
-placeholder="Your Name"
-required>
+<textarea name="Notes" placeholder="Notes"></textarea>
 
+<input type="hidden" name="_captcha" value="false">
 
-<input type="tel"
-name="Phone"
-placeholder="Phone Number"
-required>
-
-
-<input type="text"
-name="Address"
-placeholder="Address"
-required>
-
-
-<textarea
-name="Notes"
-placeholder="Notes">
-</textarea>
-
-
-<input type="hidden"
-name="_captcha"
-value="false">
-
-
-
-<button type="submit">
-Confirm Order
-</button>
-
+<button type="submit">Confirm Order</button>
 
 </form>
 
 
-
 <div id="successMessage">
 
-<h2>
-✅ تم إرسال طلبك بنجاح
-</h2>
+<h2>✅ تم إرسال طلبك</h2>
 
+<p>شكراً لزيارتك واختيارك NOVA Elegance ❤️</p>
 
-<p>
-شكراً لزيارتك واختيارك
-<b>NOVA Elegance</b> ❤️
-</p>
-
-
-<p>
-سنتصل بكم في أقرب وقت لتأكيد الطلب وتفاصيل التوصيل.
-</p>
-
-
-<p>
-نتمنى أن تستمتع بتجربتك معنا ✨
-</p>
-
+<p>سنتصل بكم في أقرب وقت لتأكيد الطلب</p>
 
 </div>
-
-
 
 <br>
-
-<button onclick="closeForm()">
-Close
-</button>
-
+<button onclick="closeForm()">Close</button>
 
 </div>
-
 
 
 
 <script>
 
-
-function openForm(product){
-
+function openForm(){
 document.getElementById("orderForm").style.display="block";
 
-document.getElementById("productInput").value=product;
-
+var size=document.getElementById("size").value;
+document.getElementById("sizeInput").value=size;
 }
-
-
 
 function closeForm(){
-
 document.getElementById("orderForm").style.display="none";
-
 }
-
-
-
 
 
 document.getElementById("orderData")
 .addEventListener("submit",function(e){
 
-
 e.preventDefault();
 
-
 fetch(this.action,{
-
 method:"POST",
-
 body:new FormData(this)
-
 });
-
-
 
 this.style.display="none";
-
-
-document.getElementById("successMessage")
-.style.display="block";
-
-
+document.getElementById("successMessage").style.display="block";
 
 });
-
-
 
 </script>
 
-
 </body>
-
 </html>
